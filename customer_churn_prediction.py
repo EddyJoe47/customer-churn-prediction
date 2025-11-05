@@ -9,7 +9,7 @@ print("🚀 Starting Customer Churn Prediction...\n")
 # 1️⃣ Load Dataset
 # ================================
 print("🔹 Loading dataset...")
-url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/Telco-Customer-Churn.csv"
+url = "https://raw.githubusercontent.com/EddyJoe47/customer-churn-prediction/refs/heads/main/customer_churn_prediction.csv"
 df = pd.read_csv(url)
 print("✅ Dataset Loaded Successfully!")
 print(f"📊 Shape of dataset: {df.shape}\n")
