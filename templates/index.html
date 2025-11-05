@@ -7,6 +7,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <body>
     <div class="container mt-5">
@@ -22,6 +23,13 @@
 
       <h3 class="mt-5">Summary Statistics:</h3>
       <div class="table-responsive">{{ stats | safe }}</div>
+
+      <h3 class="mt-5">Churn Distribution:</h3>
+      <div id="churn-graph"></div>
+      <script>
+        var graphs = {{ graphJSON | safe }};
+        Plotly.newPlot('churn-graph', graphs.data, graphs.layout);
+      </script>
       {% endif %}
     </div>
   </body>

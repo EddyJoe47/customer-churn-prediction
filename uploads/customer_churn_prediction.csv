@@ -1,0 +1,11 @@
+customerID,gender,SeniorCitizen,tenure,MonthlyCharges,TotalCharges,Churn
+C001,Female,0,1,29.85,29.85,No
+C002,Male,1,34,56.95,1889.50,No
+C003,Male,0,2,53.85,108.15,Yes
+C004,Female,0,45,42.30,1840.75,No
+C005,Female,1,5,70.70,353.60,Yes
+C006,Male,0,22,99.65,2195.50,No
+C007,Female,0,10,89.10,891.00,Yes
+C008,Male,1,50,29.75,1487.50,No
+C009,Female,0,3,49.95,149.85,Yes
+C010,Male,1,60,105.50,6330.00,No
