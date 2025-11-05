@@ -1,6 +1,6 @@
 import pandas as pd
 
-# Creating the custom dataset
+# Create dataset
 data = {
     "customerID": ["C001", "C002", "C003", "C004", "C005", "C006", "C007", "C008", "C009", "C010"],
     "gender": ["Female", "Male", "Male", "Female", "Female", "Male", "Female", "Male", "Female", "Male"],
@@ -11,8 +11,8 @@ data = {
     "Churn": ["No", "No", "Yes", "No", "Yes", "No", "Yes", "No", "Yes", "No"]
 }
 
-df_custom = pd.DataFrame(data)
+df = pd.DataFrame(data)
 
-# Save as CSV
-df_custom.to_csv("customer_churn_prediction.csv", index=False)
-print("✅ CSV file 'customer_churn_prediction.csv' saved successfully!")
+# Save CSV correctly
+df.to_csv("customer_churn_prediction.csv", index=False, quoting=1)  # quoting=1 ensures proper quoting
+print("✅ CSV file created cleanly!")
