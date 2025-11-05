@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import os
+import plotly
 import plotly.express as px
 import json
 
@@ -36,12 +37,21 @@ def index():
             # Summary statistics
             stats_html = df.describe(include='all').to_html(classes='table table-bordered')
 
-            # Create Churn bar chart
+            # Create Churn bar chart (robust version)
             if 'Churn' in df.columns:
-                fig = px.bar(df['Churn'].value_counts().reset_index(),
-                             x='index', y='Churn',
-                             labels={'index':'Churn', 'Churn':'Count'},
-                             title='Churn Distribution')
+                counts = df['Churn'].value_counts()
+                churn_counts = pd.DataFrame({
+                    'Churn': counts.index,
+                    'Count': counts.values
+                })
+
+                fig = px.bar(
+                    churn_counts,
+                    x='Churn',
+                    y='Count',
+                    labels={'Churn': 'Churn', 'Count': 'Count'},
+                    title='Churn Distribution'
+                )
                 graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     return render_template('index.html', table=table_html, stats=stats_html, graphJSON=graphJSON)
